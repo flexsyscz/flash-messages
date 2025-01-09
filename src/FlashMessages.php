@@ -4,18 +4,13 @@ declare(strict_types=1);
 
 namespace Flexsyscz\FlashMessages;
 
-use Nette\HtmlStringable;
 use stdClass;
+use Stringable;
 
 
 trait FlashMessages
 {
-	/**
-	 * @param HtmlStringable|stdClass|string|Message $message
-	 * @param string $type
-	 * @return stdClass
-	 */
-	public function flashMessage($message, string $type = 'info'): stdClass
+	public function flashMessage(string|stdClass|Stringable $message, string $type = 'info'): stdClass
 	{
 		if (!$message instanceof Message) {
 			throw new InvalidArgumentException(sprintf('Argument $message must be instance of %s.', Message::class));
@@ -56,7 +51,7 @@ trait FlashMessages
 	}
 
 
-	public function flashError(string $message, string $caption = null): \stdClass
+	public function flashError(string $message, string $caption = null): stdClass
 	{
 		if (method_exists($this, 'translate')) {
 			$message = $this->translate($message);
@@ -67,7 +62,7 @@ trait FlashMessages
 	}
 
 
-	public function flashSuccess(string $message, string $caption = null): \stdClass
+	public function flashSuccess(string $message, string $caption = null): stdClass
 	{
 		if (method_exists($this, 'translate')) {
 			$message = $this->translate($message);
