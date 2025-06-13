@@ -29,7 +29,7 @@ trait FlashMessages
 	}
 
 
-	public function flashInfo(string $message, string $caption = null): stdClass
+	public function flashInfo(string $message, ?string $caption = null): stdClass
 	{
 		if (method_exists($this, 'translate')) {
 			$message = $this->translate($message);
@@ -40,7 +40,7 @@ trait FlashMessages
 	}
 
 
-	public function flashWarning(string $message, string $caption = null): stdClass
+	public function flashWarning(string $message, ?string $caption = null): stdClass
 	{
 		if (method_exists($this, 'translate')) {
 			$message = $this->translate($message);
@@ -51,7 +51,7 @@ trait FlashMessages
 	}
 
 
-	public function flashError(string $message, string $caption = null): stdClass
+	public function flashError(string $message, ?string $caption = null): stdClass
 	{
 		if (method_exists($this, 'translate')) {
 			$message = $this->translate($message);
@@ -62,7 +62,7 @@ trait FlashMessages
 	}
 
 
-	public function flashSuccess(string $message, string $caption = null): stdClass
+	public function flashSuccess(string $message, ?string $caption = null): stdClass
 	{
 		if (method_exists($this, 'translate')) {
 			$message = $this->translate($message);
